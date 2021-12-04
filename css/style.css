@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+}
+
+header {
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .container {
+    position: relative;
+}
+
+header .container::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    border: 1px #000 solid;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.navbar-logo {
+    display: flex;
+    align-self: center;
+}
+
+.navbar-logo i {
+    margin-right: 10px;
+}
+
+
+.navbar-nav {
+    display: flex;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 30px;
+    margin: 5px;
+
+}
+
+/* HERO SECTION */
+
+#hero {
+    width: 100%;
+    height: 95vh;
+}
+
+#hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero .container .hero-buttons {
+    display: flex;
+    width: 100%;
+    max-width: 450px;
+}
+
+#hero .container div button {
+    position: relative;
+    top: 120px;
+    background-color: red;
+    width: 100%;
+    max-width: 220px;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 0;
+    margin: 5px auto;
+
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+
+/* progress bar */
+
+.circular {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    transform: scale(3);
+}
+
+.circular .inner {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    background: #dde6f0;
+    border-radius: 100%;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circular .numb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 18px;
+}
+
+.circular .bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circle .bar .progress {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 50px, 100px, 0px);
+    background: #4158d0;
+}
+
+.circle .left .progress {
+    z-index: 1;
+    animation: left 4s linear both;
+}
+
+@keyframes left {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+.circle .right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+
+.circle .right .progress {
+    animation: right 4s linear both;
+    animation-delay: 4s;
+}
+
+@keyframes right {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+/* Tarefas */
+
+#tarefas {
+    background-color: seagreen;
+    width: 100%;
+    height: 80vh;
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    height: 10vh;
+}
+
+footer .container {
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+@media (max-width: 768px) {
+    .nav-button {
+        width: 50px;
+        height: 30px;
+    }
+
+    .nav-button p {
+        display: none;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
