@@ -48,13 +48,17 @@ header .container::before {
 }
 
 .nav-button {
-    display: flex;
     align-items: center;
+    display: flex;
+    font-size: 16px;
     justify-content: center;
-    width: 110px;
+    width: 140px;
     height: 30px;
     margin: 5px;
+}
 
+.nav-button i {
+    margin-right: 5px;
 }
 
 /* HERO SECTION */
@@ -177,6 +181,163 @@ header .container::before {
     height: 80vh;
 }
 
+#tarefas .container {
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.col-50 {
+    width: 100%;
+    border-right: 4px dashed black;
+    border-left: 4px dashed black;
+}
+
+.card-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: chocolate;
+    width:  90%;
+    height: 80px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.card-add:hover {
+    cursor: pointer;
+}
+
+.card-add i {
+    margin-right: 20px;
+}
+
+/* MODAL */
+
+.modal-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: 90%;
+    max-width: 500px;
+    height: 600px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.modal .primary-title {
+    color: #000;
+}
+
+.input-group {
+    margin-top: 20px;
+    padding: 10px;
+    background: #e2e2e2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input-group input {
+    border: none;
+    background: #e2e2e2;
+    font-size: 20px;
+}
+
+.principal-input::placeholder {
+    color: #000;
+    opacity: 0.9;
+}
+
+.input-group input:focus {
+    outline: none !important;
+    background: #e1e1e1;
+}
+
+.input-group:nth-last-child(3) {
+    flex-direction: row;
+}
+
+.radio-button {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0 auto;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-button input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.radio-button:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.radio-button input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-button input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.radio-button .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
 /* FOOTER */
 
 footer {
@@ -195,6 +356,31 @@ footer .container {
     justify-content: center;
     align-items: center;
     font-size: 32px;
+}
+
+/* TITLES */
+
+.primary-title {
+    margin: 20px 0 0 0;
+    font-size: 50px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.secondary-title {
+    margin: 20px 0 0 0;
+    font-size: 30px;
+    color: #000;
+    opacity: 0.8;
+    text-transform: capitalize;
+}
+
+.terceary-title {
+    margin: 20px 0 0 0;
+    font-size: 20px;
+    color: #000;
+    opacity: 0.6;
+    text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
