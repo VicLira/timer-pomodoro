@@ -228,9 +228,13 @@ header .container::before {
     left: 0;
     background: rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+
+.modal-container.mostrar {
+    display: flex;
 }
 
 .modal {
@@ -240,6 +244,20 @@ header .container::before {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
+    position: relative;
+}
+
+.fechar {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 18px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .modal .primary-title {
@@ -253,7 +271,7 @@ header .container::before {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .input-group input {
@@ -272,7 +290,7 @@ header .container::before {
     background: #e1e1e1;
 }
 
-.input-group:nth-last-child(3) {
+.input-group:nth-last-child(4) {
     flex-direction: row;
 }
 
@@ -335,7 +353,13 @@ header .container::before {
     transform: rotate(45deg);
 }
 
-
+.button-add {
+    margin-top: 60px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
 
 
 /* FOOTER */
