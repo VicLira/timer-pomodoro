@@ -8,6 +8,7 @@
 
 header {
     width: 100%;
+    background: #65c8d0;
 }
 
 .container {
@@ -29,13 +30,14 @@ header .container::before {
     top: 100%;
     width: 100%;
     border: 1px #000 solid;
-    font-size: 14px;
+    font-size: 20px;
     z-index: 1;
 }
 
 .navbar-logo {
     display: flex;
     align-self: center;
+    font-size: 20px;
 }
 
 .navbar-logo i {
@@ -55,6 +57,9 @@ header .container::before {
     width: 140px;
     height: 30px;
     margin: 5px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
 }
 
 .nav-button i {
@@ -66,6 +71,8 @@ header .container::before {
 #hero {
     width: 100%;
     height: 95vh;
+    background: url('../img/bg-floresta.png');
+    background-size: cover;
 }
 
 #hero .container {
@@ -84,11 +91,13 @@ header .container::before {
 #hero .container div button {
     position: relative;
     top: 120px;
-    background-color: red;
+    background-color: #002722;
+    color: #fff;
+    cursor: pointer;
     width: 100%;
     max-width: 220px;
     border: none;
-    border-radius: 5px;
+    border-radius: 40px;
     padding: 20px 0;
     margin: 5px auto;
 
@@ -176,13 +185,26 @@ header .container::before {
 /* Tarefas */
 
 #tarefas {
-    background-color: seagreen;
+    background-color: #002722;
     width: 100%;
     height: 80vh;
 }
 
 #tarefas .container {
     flex-direction: column;
+}
+
+#tarefas .container .primary-title {
+    margin: 20px 0 0 40px;
+    position: relative;
+}
+
+#tarefas .container .primary-title::before {
+    content: "";
+    height: 100%;
+    border: 1px solid #fff;
+    position: absolute;
+    left: -15px;
 }
 
 .row {
@@ -193,15 +215,13 @@ header .container::before {
 
 .col-50 {
     width: 100%;
-    border-right: 4px dashed black;
-    border-left: 4px dashed black;
 }
 
 .card-add {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: chocolate;
+    background: #007a6d;
     width:  90%;
     height: 80px;
     padding: 20px;
@@ -216,6 +236,14 @@ header .container::before {
 
 .card-add i {
     margin-right: 20px;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.card-add .terceary-title {
+    color: #fff;
 }
 
 /* MODAL */
@@ -367,6 +395,7 @@ header .container::before {
 footer {
     width: 100%;
     height: 10vh;
+    margin: -10px 0;
 }
 
 footer .container {
@@ -400,10 +429,9 @@ footer .container {
 }
 
 .terceary-title {
-    margin: 20px 0 0 0;
     font-size: 20px;
     color: #000;
-    opacity: 0.6;
+    opacity: 0.8;
     text-transform: uppercase;
 }
 
@@ -418,6 +446,10 @@ footer .container {
     }
 
     .hero-buttons {
+        flex-direction: column;
+    }
+
+    .row {
         flex-direction: column;
     }
 }
