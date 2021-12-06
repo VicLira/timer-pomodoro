@@ -43,7 +43,7 @@
         <div class="container">
             <div class="circular">
                 <div class="inner"></div>
-                <div class="numb"></div>
+                <div class="numb" id="counter">00:00</div>
                     <div class="circle">
                         <div class="bar left">
                             <div class="progress"></div>
@@ -54,11 +54,14 @@
                     </div>
             </div>
             <div class="hero-buttons">
-                <button>
+                <button onclick="start()">
                     Start
                 </button>
-                <button>
+                <button onclick="pause()">
                     Stop
+                </button>
+                <button onclick="reset()">
+                    reset
                 </button>
             </div>
         </div>
@@ -77,8 +80,10 @@
                         <h3 class="terceary-title">Adicionar Tarefa</h3>
                     </div>
                 </div>
-                <div class="col-50">
-                    
+                <div class="col-50" id="novaTarefa">
+                    <div class="card card-add" onclick="addTarefa()">
+                       <h1 class="text">text</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,8 +109,8 @@
                 </h1>
 
                 <div class="input-group">
-                    <input class="principal-input" type="text" placeholder="Nome Tarefa">
-                    <input type="text" placeholder="Curta descrição Tarefa">
+                    <input class="principal-input" type="text" placeholder="Nome Tarefa" id="nomeTarefa">
+                    <input type="text" placeholder="Curta descrição Tarefa" id="descricaoTarefa">
                 </div>
 
                 <h2 class="secondary-title">Prioridade:</h2>
@@ -131,7 +136,7 @@
                     
                 </div>
 
-                <button class="button-add">Adicionar</button>
+                <button class="button-add" onclick="addTarefa()">Adicionar</button>
                 
             </form>
         </div>

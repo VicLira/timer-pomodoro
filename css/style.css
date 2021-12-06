@@ -6,6 +6,10 @@
     color: #000;
 }
 
+:root{
+    --tempo-animacao: 2s;
+}
+
 header {
     width: 100%;
     background: #65c8d0;
@@ -29,18 +33,24 @@ header .container::before {
     position: absolute;
     top: 100%;
     width: 100%;
-    border: 1px #000 solid;
+    border: 1px #fff solid;
     font-size: 20px;
     z-index: 1;
 }
 
 .navbar-logo {
+    color: #fff;
     display: flex;
     align-self: center;
     font-size: 20px;
 }
 
+.navbar-logo h3 {
+    color: #fff;
+}
+
 .navbar-logo i {
+    color: #fff;
     margin-right: 10px;
 }
 
@@ -63,7 +73,12 @@ header .container::before {
 }
 
 .nav-button i {
+    color: #fff;
     margin-right: 5px;
+}
+
+.nav-button p {
+    color: #fff;
 }
 
 /* HERO SECTION */
@@ -157,7 +172,7 @@ header .container::before {
 
 .circle .left .progress {
     z-index: 1;
-    animation: left 4s linear both;
+    animation: left var(--tempo-animacao) linear both;
 }
 
 @keyframes left {
@@ -172,8 +187,8 @@ header .container::before {
 }
 
 .circle .right .progress {
-    animation: right 4s linear both;
-    animation-delay: 4s;
+    animation: right var(--tempo-animacao) linear both;
+    animation-delay: var(--tempo-animacao);
 }
 
 @keyframes right {
@@ -451,6 +466,10 @@ footer .container {
 
     .row {
         flex-direction: column;
+    }
+
+    .col-50 {
+        height: 100%;
     }
 }
 
