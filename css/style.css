@@ -232,7 +232,11 @@ header .container::before {
     width: 100%;
 }
 
-.card-add {
+.col-50:nth-last-child(1) {
+    overflow: auto;
+}
+
+.card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,6 +265,41 @@ header .container::before {
     color: #fff;
 }
 
+.card-newTarefa {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-newTarefa h3, h2, p {
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.card-newTarefa p{
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.card-newTarefa div:nth-last-child(2) {
+    width: 70%;
+}
+
+.card-newTarefa div:nth-last-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.card-newTarefa i {
+    margin-left: 5px;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
 /* MODAL */
 
 .modal-container {
@@ -283,7 +322,7 @@ header .container::before {
 .modal {
     width: 90%;
     max-width: 500px;
-    height: 600px;
+    height: auto;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -320,7 +359,7 @@ header .container::before {
 .input-group input {
     border: none;
     background: #e2e2e2;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .principal-input::placeholder {
@@ -333,7 +372,7 @@ header .container::before {
     background: #e1e1e1;
 }
 
-.input-group:nth-last-child(4) {
+.input-group:nth-last-child(5) {
     flex-direction: row;
 }
 
@@ -343,7 +382,7 @@ header .container::before {
     padding-left: 35px;
     margin-bottom: 0 auto;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -396,6 +435,19 @@ header .container::before {
     transform: rotate(45deg);
 }
 
+#alertaDados {
+    margin-top: 10px;
+    color: rgb(255, 0, 0);
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+#alertaDados i{
+    color: rgb(255, 0, 0);
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
 .button-add {
     margin-top: 60px;
     width: 100%;
@@ -430,21 +482,21 @@ footer .container {
 
 .primary-title {
     margin: 20px 0 0 0;
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
     text-transform: uppercase;
 }
 
 .secondary-title {
     margin: 20px 0 0 0;
-    font-size: 30px;
+    font-size: 25px;
     color: #000;
     opacity: 0.8;
     text-transform: capitalize;
 }
 
 .terceary-title {
-    font-size: 20px;
+    font-size: 25px;
     color: #000;
     opacity: 0.8;
     text-transform: uppercase;

@@ -80,10 +80,8 @@
                         <h3 class="terceary-title">Adicionar Tarefa</h3>
                     </div>
                 </div>
-                <div class="col-50" id="novaTarefa">
-                    <div class="card card-add" onclick="addTarefa()">
-                       <h1 class="text">text</h1>
-                    </div>
+                <div class="col-50" id="colCardTarefa">
+                
                 </div>
             </div>
         </div>
@@ -117,15 +115,15 @@
 
                 <div class="input-group">
                     <label class="radio-button"> baixa
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="prioridade" value="1">
                         <span class="checkmark"></span>
                     </label>
                     <label class="radio-button"> média
-                        <input type="radio" name="radio">
+                        <input type="radio" name="prioridade" value="2">
                         <span class="checkmark"></span>
                     </label>
                     <label class="radio-button"> alta
-                        <input type="radio" name="radio">
+                        <input type="radio" name="prioridade" value="3">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -133,10 +131,12 @@
                 <h2 class="secondary-title">Quantidade Pomodoros:</h2>
 
                 <div class="input-group">
-                    
+                    <input class="principal-input" type="text" placeholder="Quantidade Pomodoros" id="qtdPomodoros">
                 </div>
 
-                <button class="button-add" onclick="addTarefa()">Adicionar</button>
+                <p id="alertaDados"></p>
+
+                <button class="button-add" type="button" onclick="addTarefa()">Adicionar</button>
                 
             </form>
         </div>
