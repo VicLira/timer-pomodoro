@@ -5,18 +5,18 @@ var startingMinutes = 25;
 var counter;
 var root;
 
+var time;
+
+var minutes;
+var seconds;
+
 function start() {
     timer();
 }
 
-function pause() {
-    clearInterval(cronos);
-}
-
 function timer(root) {
-
     //startingMinutes = document.getElementById("minuto").value;
-    let time = startingMinutes * 60;
+    time = startingMinutes * 60;
 
     counter = document.getElementById("counter");
 
@@ -27,8 +27,8 @@ function timer(root) {
     }}, tempo)
 
     function updateCountdown() {
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
+        minutes = Math.floor(time / 60);
+        seconds = time % 60;
 
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
@@ -38,10 +38,16 @@ function timer(root) {
     }
 }
 
+function pause() {
+    clearInterval(cronos);
+    startingMinutes = time / 60;
+    counter.innerHTML = `${minutes}:${seconds}`;
+}
+
 function reset() {
     clearInterval(cronos)
-    startingMinutes = 0;
-    counter.innerHTML = `00:00`
+    startingMinutes = 25;
+    counter.innerHTML = `25:00`
 }
 
     
