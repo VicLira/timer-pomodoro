@@ -70,64 +70,79 @@ const addButton = document.querySelector('.card.card-add');
 addButton.addEventListener('click', () => iniciarModal('modal-tarefa'));
 
 /* NOVA TAREFA -----------------------*/
-var tarefa = {"nomeTarefa": "nome", 
-                "descricaoTarefa:": "descricao",
-                "prioridade": 1,
-                "qtdPomodoros": 0};
+
+const localStorageTarefas = JSON.parse(localStorage.getItem('tarefas'));
+let tarefas = localStorage.getItem('tarefas') !== null ? localStorageTarefas : [];
+
+const updateLocalStorage = () => {
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+}
+
+const removeTarefas = ID => {
+    tarefas = tarefas.filter(tarefa => tarefa.id !== ID)
+    init();
+    updateLocalStorage();
+}
+
+const init = () => {
+    tarefasUl.innerHTML = '';
+    tarefas.forEach(addCardIntoDOM);
+    updateLocalStorage();
+}
 
 function addTarefa(modalID) {
     const modal = document.getElementById('modal-tarefa');
 
-    let inputNome = document.getElementById('nomeTarefa');
-    let inputDescricao = document.getElementById('descricaoTarefa');
-    let inputPrioridade = document.querySelector('input[name="prioridade"]:checked');
-    let inputQtdPomodoros = document.getElementById('qtdPomodoros');
+    let inputNome = document.getElementById('nomeTarefa').value;
+    let inputDescricao = document.getElementById('descricaoTarefa').value;
+    let inputPrioridade = document.querySelector('input[name="prioridade"]:checked').value;
+    let inputQtdPomodoros = document.getElementById('qtdPomodoros').value;
 
-    if (inputNome.value == "" || inputDescricao.value == "" || inputPrioridade.value == "" || inputQtdPomodoros == "") {
+    if (inputNome == "" || inputDescricao == "" || inputPrioridade == "" || inputQtdPomodoros == "") {
         var alertaDados = document.getElementById('alertaDados').innerHTML="Está faltando dados <i class='fas fa-exclamation-circle'></i>";
     } else {
-        tarefa.nomeTarefa = inputNome.value;
-        tarefa.descricaoTarefa = inputDescricao.value;
-        tarefa.prioridadeTarefa = inputPrioridade.value;
-        tarefa.qtdPomodoros = inputQtdPomodoros.value;
+
+        const generateID = () => Math.round(Math.random() * 1000);
+
+        const tarefa = 
+        {
+        id: generateID(),    
+        nome: inputNome, 
+        descricao: inputDescricao,
+        prioridade: inputPrioridade,
+        pomodoros: Number(inputQtdPomodoros)
+        };
+
+
+        tarefas.push(tarefa);
+        init();
+        updateLocalStorage();
+        
+
         modal.classList.remove('mostrar');
-
-        let newCard = document.createElement('div');
-        newCard.classList.add('card', 'card-newTarefa');
-
-        let div01 = document.createElement('div');
-        let div02 = document.createElement('div');
-        let div03 = document.createElement('div');
-
-        let h1 = document.createElement('h3');
-        let h2Priority = document.createElement('h2');
-        let h2qtdPomodoros = document.createElement('h2');
-        let p = document.createElement('p');
-
-        let newCardPriority = document.createTextNode(tarefa.prioridadeTarefa);
-        let newCardName = document.createTextNode(tarefa.nomeTarefa);
-        let newCardDescription = document.createTextNode(tarefa["descricaoTarefa:"]);
-        let newCardQtdPomodoros = document.createTextNode(tarefa.qtdPomodoros);
-
-        let newCardIcon = document.createElement('i');
-        newCardIcon.classList.add('fas', 'fa-stopwatch');
-
-        h2Priority.appendChild(newCardPriority);
-        div01.appendChild(h2Priority);
-        h1.appendChild(newCardName);
-        p.appendChild(newCardDescription);
-        div02.appendChild(h1);
-        div02.appendChild(p);
-        h2qtdPomodoros.appendChild(newCardQtdPomodoros);
-        div03.appendChild(h2qtdPomodoros);
-        div03.appendChild(newCardIcon);
-
-        newCard.appendChild(div01);
-        newCard.appendChild(div02);
-        newCard.appendChild(div03);
-
-        let currentCard = document.getElementById('card-novaTarefa');
-        let colCard = document.getElementById('colCardTarefa');
-        colCard.insertBefore(newCard, currentCard);
     }
 };
+
+const tarefasUl = document.getElementById('colCardTarefa');
+
+const addCardIntoDOM = tarefa => {
+   
+    const div = document.createElement('div');
+
+    div.classList.add('card', 'card-newTarefa');
+    div.innerHTML = `
+        <div><h3>${tarefa.prioridade}</h3></div>
+        <div><h2>${tarefa.nome}</h2>, <p>${tarefa.descricao}</p></div>
+        <div><i class="fas fa-stopwatch"></i><h3>${tarefa.pomodoros}</h3></div>
+    `
+
+    tarefasUl.append(div);
+
+    updateLocalStorage();
+}
+
+init();
+updateLocalStorage();
+
+
+
