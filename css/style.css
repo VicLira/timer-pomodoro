@@ -271,6 +271,23 @@ header .container::before {
     justify-content: space-between;
 }
 
+.prioridade-baixa{
+    border-left: 10px solid green;
+}
+
+.prioridade-media{
+    border-left: 10px solid yellow;
+}
+
+.prioridade-alta{
+    border-left: 10px solid red;
+}
+
+.remove-button {
+    width: 25px;
+    height: 25px;
+}
+
 .card-newTarefa h3, h2, p {
     font-size: 20px;
     color: #fff;

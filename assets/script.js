@@ -98,11 +98,22 @@ function addTarefa(modalID) {
     let inputPrioridade = document.querySelector('input[name="prioridade"]:checked').value;
     let inputQtdPomodoros = document.getElementById('qtdPomodoros').value;
 
-    if (inputNome == "" || inputDescricao == "" || inputPrioridade == "" || inputQtdPomodoros == "") {
+    if (inputNome == "" || inputPrioridade == "" || inputQtdPomodoros == "") {
         var alertaDados = document.getElementById('alertaDados').innerHTML="Está faltando dados <i class='fas fa-exclamation-circle'></i>";
     } else {
 
         const generateID = () => Math.round(Math.random() * 1000);
+
+        if (inputPrioridade <= 1) 
+        {
+            inputPrioridade = 'prioridade-baixa';
+        } else if (inputPrioridade <= 2)
+        {
+            inputPrioridade = 'prioridade-media';
+        } else 
+        {
+            inputPrioridade = 'prioridade-alta';
+        }
 
         const tarefa = 
         {
@@ -129,9 +140,9 @@ const addCardIntoDOM = tarefa => {
    
     const div = document.createElement('div');
 
-    div.classList.add('card', 'card-newTarefa');
+    div.classList.add('card', 'card-newTarefa', `${tarefa.prioridade}`);
     div.innerHTML = `
-        <div><h3>${tarefa.prioridade}</h3></div>
+        <input type="checkbox" class="remove-button" onClick="removeTarefas(${tarefa.id})">
         <div><h2>${tarefa.nome}</h2>, <p>${tarefa.descricao}</p></div>
         <div><i class="fas fa-stopwatch"></i><h3>${tarefa.pomodoros}</h3></div>
     `
