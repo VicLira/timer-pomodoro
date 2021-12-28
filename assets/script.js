@@ -1,41 +1,69 @@
 /* TIMER -------------------*/
-var tempo = 1000;
-var cronos;
-var startingMinutes = 25;
-var counter;
-var root;
+let tempo = 1000;
+let cronos;
+let startingMinutes = 0.1;
+let counter;
+let root;
 
-var time;
+let time;
 
-var minutes;
-var seconds;
+let minutes;
+let seconds;
 
 function start() {
     timer();
 }
 
-function timer(root) {
+function timer() {
     //startingMinutes = document.getElementById("minuto").value;
     time = startingMinutes * 60;
 
     counter = document.getElementById("counter");
 
-    const numb = document.querySelector(".numb");
     cronos = setInterval(() => {updateCountdown();
-    if(counter == 0){
-        clearInterval();
-    }}, tempo)
+    }, tempo)
 
-    function updateCountdown() {
-        minutes = Math.floor(time / 60);
-        seconds = time % 60;
+}
 
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
+let switchTimerDescanso = 2;
+let attPomodoros = 0;
 
-        counter.innerHTML = `${minutes}:${seconds}`;
+function updateCountdown() {
+    minutes = Math.floor(time / 60);
+    seconds = time % 60;
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    counter.innerHTML = `${minutes}:${seconds}`;
+
+    if(time > 0) {
         time--;
+    } else {
+        if (switchTimerDescanso % 2 == 0) {
+            clearInterval(cronos);
+            timerDescanso();
+            alert("DESCANSAR!!!");
+
+            attPomodoros++;
+            attPontuacao();
+        } else {
+            clearInterval(cronos);
+            alert("SEM DESCANSO!!!!")
+            reset();
+        }
+    switchTimerDescanso++;
     }
+}
+
+function attPontuacao() {
+    let pontuacao = document.querySelector(".attPomodoros");
+    pontuacao.innerHTML = `${attPomodoros}`;
+}
+
+function timerDescanso() {
+    startingMinutes = 5;
+    counter.innerHTML = `05:00`;
 }
 
 function pause() {
@@ -143,7 +171,7 @@ const addCardIntoDOM = tarefa => {
     div.classList.add('card', 'card-newTarefa', `${tarefa.prioridade}`);
     div.innerHTML = `
         <input type="checkbox" class="remove-button" onClick="removeTarefas(${tarefa.id})">
-        <div><h2>${tarefa.nome}</h2>, <p>${tarefa.descricao}</p></div>
+        <div><h2>${tarefa.nome}</h2> <p>${tarefa.descricao}</p></div>
         <div><i class="fas fa-stopwatch"></i><h3>${tarefa.pomodoros}</h3></div>
     `
 
