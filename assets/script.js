@@ -1,7 +1,7 @@
 /* TIMER -------------------*/
 let tempo = 1000;
 let cronos;
-let startingMinutes = 0.1;
+let startingMinutes = 25;
 let counter;
 let root;
 
