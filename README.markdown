@@ -19,21 +19,13 @@
   
 </p>
 
-## Participants
-
-| [<img src="https://user-images.githubusercontent.com/70662154/153310032-0009e1bc-f99d-4829-8e06-8d8c58271504.jpg" width="100px;"/>](https://github.com/vicLira) |
-| :------------------------------------------------------------------------------------------------------------------------: |
-
-
-| [Victor Lira](https://github.com/VicLira)
-
-## Techs
+## ⚙️ Techs
 
 - [x] HTML
 - [x] CSS
 - [x] JavaScript
 
-## Ideas to implement
+## 💡 Ideas to implement
 
 - [ ] Modal Tasks
 - [ ] Page User
